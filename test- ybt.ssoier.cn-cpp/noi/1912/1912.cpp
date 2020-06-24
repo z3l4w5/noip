@@ -30,9 +30,42 @@
 【输出样例】
 62
 */
-#include <iostream>
+#include<stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
 using namespace std;
+# define ll long long
+const int maxn = 2e3 + 100;
+ll dp[maxn][maxn];
+char str[maxn];
 int main()
 {
-
+	int n, k;
+	scanf("%d %d", &n, &k);
+	scanf("%s", str + 1);
+	int len = strlen(str + 1);
+	ll tmp = 0;
+	for (int i = 1; i <= len; i++)
+	{
+		tmp = tmp * 10 + (str[i] - '0');
+		dp[i][0] = tmp;
+	}
+	for (int i = 1; i <= len; i++)
+	{
+		for (int j = 1; j <= k; j++)
+		{
+			for (int w = 1; w < i; w++)
+			{
+				ll tmp = 0;
+				for (int jj = w + 1; jj <= i; jj++)
+				{
+					tmp = tmp * 10 + (str[jj] - '0');
+				}
+				dp[i][j] = max(dp[i][j], dp[w][j - 1] * tmp);
+			}
+		}
+	}
+	printf("%lld\n", dp[len][k]);
+	return 0;
 }
