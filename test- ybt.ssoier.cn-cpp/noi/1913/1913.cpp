@@ -28,11 +28,37 @@ a
 样例连成的“龙”为atoucheatactactouchoose
 */
 
-#include <iostream>
+// 这是一个深度优先遍历的算法
 
+#include<iostream>
+#include<set>
+#include<string>
+using namespace std;
+struct Info
+{
+	string name;
+	int count;
+};
+
+struct LongWord
+{
+	set<Info> words;
+	int length;
+};
 int main()
 {
-    std::cout << "Hello World!\n";
+	char header = 'c';
+	set<Info> headers = findHeaders(header);
+
+	set<LongWord> set;
+
+	set<Info>::iterator it;
+
+	for (it = headers.begin(); it != headers.end(); it++) {
+		(*it)
+	}
+
+	return 0;
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
