@@ -7,8 +7,9 @@
 # User-specific files
 *.suo
 *.user
-*.sln.docstates
-.vs
+*.sln
+*.docstates
+*.vs
 
 # Build results
 [Dd]ebug/
